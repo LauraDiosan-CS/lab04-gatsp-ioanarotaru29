@@ -25,21 +25,21 @@ class GA:
     def bestChromosome(self):
         best = self.__population[0]
         for c in self.__population:
-            if (c.fitness < best.fitness):
+            if (c.fitness > best.fitness):
                 best = c
         return best
 
     def worstChromosome(self):
         best = self.__population[0]
         for c in self.__population:
-            if (c.fitness > best.fitness):
+            if (c.fitness < best.fitness):
                 best = c
         return best
 
     def selection(self):
         pos1 = randint(0, self.__param["popSize"] - 1)
         pos2 = randint(0, self.__param["popSize"] - 1)
-        if (self.__population[pos1].fitness < self.__population[pos2].fitness):
+        if (self.__population[pos1].fitness > self.__population[pos2].fitness):
             return pos1
         else:
             return pos2
